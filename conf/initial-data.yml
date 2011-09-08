@@ -2,3 +2,4 @@ User(martin):
     email: martinffx@gmail.com
     password: richards
     fullname: Martin Richards
+    isAdmin: true;

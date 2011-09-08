@@ -14,13 +14,22 @@ public class User extends Model {
     public String email;
     @Required
     public String password;
-    public String fullname;
+    public String firstName;
+    public String lastName;
+    public Date DOB;
     public boolean isAdmin;
     
-    public User(String email, String password, String fullname) {
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
-        this.fullname = fullname;
+    }
+    
+    public User(String email, String password, String firstName, String lastName, Date DOB) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.DOB = DOB;
     }
     
     public static User connect(String email, String password) {
@@ -28,7 +37,7 @@ public class User extends Model {
     }
 
     public String toString() {
-        return email;
+        return firstName + " " + lastName;
     }
  
 }

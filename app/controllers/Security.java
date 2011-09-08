@@ -13,5 +13,5 @@ public class Security extends Secure.Security {
 	        return User.find("byEmail", connected()).<User>first().isAdmin;
 	    }
 	    return false;
-		}
+	}
 }
