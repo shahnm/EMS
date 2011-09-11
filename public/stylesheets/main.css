@@ -1,4 +1,34 @@
+/* Top Menu Bar */
+.topbar div span.logout{
+	float: right;
+	text-align: right;
+	display: block;
+}
+.topbar div span.logout a{
+	display: block;
+    line-height: 19px;
+    padding: 10px 10px 11px;
+    text-decoration: none;
+}
+
+/* Main content styling */
 div.content
 {
 	margin-top: 100px;
+}
+
+/* CRUD Listing styling */
+.CrudTitle{
+	width: 500px;
+	float: left;
+}
+#crudListSearch{
+	width: 400px;
+	float: right;
+}
+div.crudField {
+	margin-top: 10px;
+}
+span.duty {
+	margin-top: 10px;
 }

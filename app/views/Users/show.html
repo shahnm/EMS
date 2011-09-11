@@ -1,0 +1,62 @@
+#{extends 'main.html' /}
+#{set title:messages.get('crud.users.show.title', type.modelName) /}
+
+<div id="crudShow" class="${type.name}">
+	<div class="CrudTitle">
+    	<h2 id="crudShowTitle">&{'crud.users.show.title', type.modelName}</h2>
+    </div>	
+    #{form @delete(object._key())}
+        <p class="crudDelete">
+            <input type="submit" value="&{'crud.users.delete', type.modelName}" />
+        </p>
+    #{/form}
+	<div style="clear:both;"></div>
+    <div class="objectForm">
+    #{form action:@save(object._key()), enctype:'multipart/form-data'}
+        #{crud.form}
+		    #{crud.custom 'duties'}
+		        <label for="duties">
+		            &{'duties'}
+		        </label>
+		        <style type="text/css">
+			        .duties-list .duty {
+			            cursor: pointer;
+			            padding: 1px 4px;
+			        }
+			        .duties-list .selected {
+			            background: #222;
+			            color: #fff;
+			        }
+			    </style>
+			    <script type="text/javascript">
+			        var toggle = function(dutyEl) {
+			            var input = document.getElementById('h'+dutyEl.id);
+			            if(dutyEl.className.indexOf('selected') > -1) {
+			                dutyEl.className = 'tag';
+			                input.value = '';
+			            } else {
+			                dutyEl.className = 'tag selected';
+			                input.value = dutyEl.id;
+			            }
+			        }
+			    </script>
+			    <div class="duties-list">
+			        #{list items:models.Duty.findAll(), as:'duty'}
+			           <span id="${duty.id}" onclick="toggle(this)" 
+			                class="duty ${object.duties.contains(duty) ? 'selected' : ''}">
+			               ${duty}
+			           </span> 
+			           <input id="h${duty.id}" type="hidden" name="${fieldName}" 
+			                    value="${object.duties.contains(duty) ? duty.id : ''}" />
+			        #{/list}
+			    </div>
+			    <div style="clear:both;"></div>
+		    #{/crud.custom}
+		#{/crud.form}
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+        </p>
+    #{/form}
+    </div>
+</div>

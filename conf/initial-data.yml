@@ -1,5 +1,23 @@
-User(martin):
-    email: martinffx@gmail.com
-    password: richards
-    fullname: Martin Richards
-    isAdmin: true;
+Duty(teaching):
+    name:           Teaching
+Duty(research):
+    name:           Research
+Duty(administration):
+    name:           Administration
+
+User(bob):
+    email:          bob@gmail.com
+    password:       secret
+    firstName:       Bob
+    isAdmin:        true
+    duties:
+                    - administration
+    
+User(jeff):
+    email:          jeff@gmail.com
+    password:       secret
+    firstName:       Jeff
+    duties:
+                    - teaching
+                    - research
+    

@@ -1,6 +1,2 @@
-app
-conf
-lib
-modules
-public
-test
+tmp
+test-result

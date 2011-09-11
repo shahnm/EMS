@@ -12,6 +12,7 @@ html, body {
 #login h1 {
     font-weight: bold;
     color: #111;
+    content:"Effort Management System - Login";
 }
 
 #login form {
